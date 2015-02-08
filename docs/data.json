@@ -1,0 +1,629 @@
+{
+    "project": {
+        "name": "pointer-filter",
+        "description": "This plugin allows you to control pointer events.",
+        "version": "0.1.0",
+        "url": "http://kiwijs.org/"
+    },
+    "files": {
+        "src/pointer-filter-0.1.0.js": {
+            "name": "src/pointer-filter-0.1.0.js",
+            "modules": {
+                "Plugins": 1,
+                "Kiwi.Plugins": 1
+            },
+            "classes": {
+                "Kiwi.Plugins.PointerFilter": 1,
+                "Kiwi.Plugins.PointerFilter.PointerFilter": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.PointerFilter": 1
+            }
+        }
+    },
+    "modules": {
+        "Kiwi": {
+            "name": "Kiwi",
+            "submodules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins": 1
+            }
+        },
+        "Plugins": {
+            "name": "Plugins",
+            "submodules": {},
+            "classes": {
+                "Kiwi.Plugins.PointerFilter": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "Kiwi.Plugins": 1
+            },
+            "module": "Kiwi.Plugins",
+            "namespace": "",
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 1,
+            "description": "Pointer Filter Plugin"
+        },
+        "Kiwi.Plugins": {
+            "name": "Kiwi.Plugins",
+            "submodules": {
+                "Plugins": 1
+            },
+            "classes": {
+                "Kiwi.Plugins.PointerFilter": 1,
+                "Kiwi.Plugins.PointerFilter.PointerFilter": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins.PointerFilter": 1
+            },
+            "tag": "module",
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 52
+        }
+    },
+    "classes": {
+        "Kiwi.Plugins.PointerFilter": {
+            "name": "Kiwi.Plugins.PointerFilter",
+            "shortname": "Kiwi.Plugins.PointerFilter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Kiwi.Plugins",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter",
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 1,
+            "description": "Pointer Filter Plugin"
+        },
+        "Kiwi.Plugins.PointerFilter.PointerFilter": {
+            "name": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "shortname": "PointerFilter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter",
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 52,
+            "description": "This object allows you to filter pointer behaviour as it happens.\n<br><br>\nYou must pass this function a pointer. If you are using a mouse, you can\n\taccess this at \"game.input.pointers[ 10 ]\"\n\t(where \"game\" is your game object). If you are using a touch\n\tdevice, you can access 10 fingers from \"game.input.pointers[ 0...9 ]\".\n<br><br>\nTo activate or deactivate any filter, set its flag to true or false.\n\tAvailable filter flags are \"filterMove\", \"filterStart\", \"filterStop\", and\n\t\"filterWheel\".\n<br><br>\nEach filter calls a specific method before activating the default behaviour.\n\tThese methods are empty by default.\n\tOverride \"onMove\" to filter any movement events.\n\tOverride \"onStart\" and \"onStop\" to filter any press/unpress events.\n\tOverride \"onWheel\" to filter mouse wheel activity.\n\tThese functions execute in the scope of the Pointer object.\n<br><br>\nAll filter methods have access to an argument called \"event\".\n\tThis contains a copy of all the mouse event data.\n\tIt also contains \"x\" and \"y\" values which alias seamlessly\n\tto the mouse event data, but exist in game space.\n<br><br>\nNote that \"onDown\" and \"onUp\" events will fire whenever the mouse button is\n\tpressed or released, regardless of filters. Please consult the Kiwi.js\n\tAPI on the topic of Signals to see how you can prioritise, interrupt,\n\tor simulate these events.",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "pointer",
+                    "description": "Pointer to filter",
+                    "type": "Kiwi.Input.Pointer"
+                }
+            ],
+            "return": {
+                "description": "Kiwi.Plugins.PointerFilter.PointerFilter"
+            },
+            "since": "0.1.0"
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 9,
+            "description": "The name of this plugin.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "default": "\"PointerFilter\"",
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.PointerFilter",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 18,
+            "description": "The version of this plugin.",
+            "itemtype": "property",
+            "name": "version",
+            "type": "String",
+            "default": "\"0.1.0\"",
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.PointerFilter",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 28,
+            "description": "Registers this plugin with the Global Kiwi Plugins Manager if it is avaiable.",
+            "class": "Kiwi.Plugins.PointerFilter",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 34,
+            "description": "This create method is executed when Kiwi Game that has been told\nto use this plugin reaches the boot stage of the game loop.",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "game",
+                    "description": "The game that is current in the boot stage.",
+                    "type": "Kiwi.Game"
+                }
+            ],
+            "access": "private",
+            "tagname": "",
+            "class": "Kiwi.Plugins.PointerFilter",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 88,
+            "description": "Pointer to filter",
+            "itemtype": "property",
+            "name": "pointer",
+            "type": "{Kiwi.Input.Pointer}",
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 103,
+            "description": "Whether the pointer.move method should be filtered",
+            "itemtype": "property",
+            "name": "filterMove",
+            "type": "Boolean",
+            "default": "false",
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 127,
+            "description": "Whether the pointer.start method should be filtered",
+            "itemtype": "property",
+            "name": "filterStart",
+            "type": "Boolean",
+            "default": "false",
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 151,
+            "description": "Whether the pointer.stop method should be filtered",
+            "itemtype": "property",
+            "name": "filterStop",
+            "type": "Boolean",
+            "default": "false",
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 175,
+            "description": "Whether the pointer.wheel method should be filtered",
+            "itemtype": "property",
+            "name": "filterWheel",
+            "type": "Boolean",
+            "default": "false",
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 200,
+            "description": "Set internal properties",
+            "itemtype": "method",
+            "name": "_init",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 218,
+            "description": "Whether the pointer.move method should be filtered",
+            "itemtype": "property",
+            "name": "_filterMove",
+            "type": "Boolean",
+            "default": "false",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 228,
+            "description": "Whether the pointer.start method should be filtered",
+            "itemtype": "property",
+            "name": "_filterStart",
+            "type": "Boolean",
+            "default": "false",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 238,
+            "description": "Whether the pointer.stop method should be filtered",
+            "itemtype": "property",
+            "name": "_filterStop",
+            "type": "Boolean",
+            "default": "false",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 248,
+            "description": "Whether the pointer.wheel method should be filtered",
+            "itemtype": "property",
+            "name": "_filterWheel",
+            "type": "Boolean",
+            "default": "false",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 258,
+            "description": "The original function of pointer.move",
+            "itemtype": "method",
+            "name": "_defaultMove",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 266,
+            "description": "The original function of pointer.start",
+            "itemtype": "method",
+            "name": "_defaultStart",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 274,
+            "description": "The original function of pointer.stop",
+            "itemtype": "method",
+            "name": "_defaultStop",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 282,
+            "description": "The original function of pointer.wheel",
+            "itemtype": "method",
+            "name": "_defaultWheel",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 290,
+            "description": "User-defined filter for pointer.move. Override this with your code.\n\tWhen filterMove is true, this filter will execute\n\tdirectly before pointer.move, allowing you to edit\n\tthe pointer event.\n<br><br>\nThe event has the extra properties \"x\" and \"y\", which correspond\n\tto the game area.",
+            "itemtype": "method",
+            "name": "onMove",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "User-editable event",
+                    "type": "Event"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 305,
+            "description": "User-defined filter for pointer.start. Override this with your code.\n\tWhen filterStart is true, this filter will execute\n\tdirectly before pointer.start, allowing you to edit\n\tthe pointer event.\n<br><br>\nThe event has the extra properties \"x\" and \"y\", which correspond\n\tto the game area.",
+            "itemtype": "method",
+            "name": "onStart",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "User-editable event",
+                    "type": "Event"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 320,
+            "description": "User-defined filter for pointer.stop. Override this with your code.\n\tWhen filterStop is true, this filter will execute\n\tdirectly before pointer.stop, allowing you to edit\n\tthe pointer event.\n<br><br>\nThe event has the extra properties \"x\" and \"y\", which correspond\n\tto the game area.",
+            "itemtype": "method",
+            "name": "onStop",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "User-editable event",
+                    "type": "Event"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 335,
+            "description": "User-defined filter for pointer.wheel. Override this with your code.\n\tWhen filterWheel is true, this filter will execute\n\tdirectly before pointer.wheel, allowing you to edit\n\tthe pointer event.\n<br><br>\nThe event has the extra properties \"x\" and \"y\", which correspond\n\tto the game area.\n<br><br>\nNote that touch pointers do not process wheel events, as fingers do not\n\thave wheels.",
+            "itemtype": "method",
+            "name": "onWheel",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "User-editable event",
+                    "type": "Event"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 355,
+            "description": "Creates an interception method",
+            "itemtype": "method",
+            "name": "createIntercept",
+            "params": [
+                {
+                    "name": "userFunction",
+                    "description": "User-defined filter function\n\twhich takes a writable event as its parameter",
+                    "type": "Function"
+                },
+                {
+                    "name": "defaultFunction",
+                    "description": "The default pointer method\n\twhich is called after the filter",
+                    "type": "Function"
+                }
+            ],
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 382,
+            "description": "Copies all properties of an event into a malleable object.\n\tThis also provides convenient access to \"x\" and \"y\" coordinates\n\tin game space. If the xy coordinates on the event are altered,\n\tthey will automatically be applied to the mouse coordinates.",
+            "itemtype": "method",
+            "name": "cloneEvent",
+            "params": [
+                {
+                    "name": "realEvent",
+                    "description": "A pointer event",
+                    "type": "Event"
+                }
+            ],
+            "return": {
+                "description": "Object"
+            },
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 435,
+            "description": "Returns the type of object that this is.",
+            "itemtype": "method",
+            "name": "objType",
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "access": "public",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 447,
+            "description": "Enables filtering on pointer.move",
+            "itemtype": "method",
+            "name": "_enableFilterMove",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 465,
+            "description": "Enables filtering on pointer.start",
+            "itemtype": "method",
+            "name": "_enableFilterStart",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 483,
+            "description": "Enables filtering on pointer.stop",
+            "itemtype": "method",
+            "name": "_enableFilterStop",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 501,
+            "description": "Enables filtering on pointer.wheel",
+            "itemtype": "method",
+            "name": "_enableFilterWheel",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 519,
+            "description": "Disables filtering on pointer.move",
+            "itemtype": "method",
+            "name": "_disableFilterMove",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 534,
+            "description": "Disables filtering on pointer.start",
+            "itemtype": "method",
+            "name": "_disableFilterStart",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 549,
+            "description": "Disables filtering on pointer.stop",
+            "itemtype": "method",
+            "name": "_disableFilterStop",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        },
+        {
+            "file": "src/pointer-filter-0.1.0.js",
+            "line": 564,
+            "description": "Disables filtering on pointer.wheel",
+            "itemtype": "method",
+            "name": "_disableFilterWheel",
+            "access": "private",
+            "tagname": "",
+            "since": "0.1.0",
+            "class": "Kiwi.Plugins.PointerFilter.PointerFilter",
+            "module": "Kiwi.Plugins",
+            "namespace": "Kiwi.Plugins.PointerFilter"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nRegisters this plugin with the Global Kiwi Plugins Manager if it is avaiable.",
+            "line": " src/pointer-filter-0.1.0.js:28"
+        }
+    ]
+}
